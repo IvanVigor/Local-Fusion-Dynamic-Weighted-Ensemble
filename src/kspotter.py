@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import seaborn as sns
 from metrics import *
 
 # A function which return the most similar elements to a point
@@ -25,11 +24,6 @@ def error_bias(data, k, metric):
         error_bias.append(np.sum(data[neighbors] - data[i])/k)
     return error_bias
 
-# A function that predicts the value of a point given many different models provided as input
-def predict(point, data, k, metric, weights):
-    neighbors, weights = get_k_nearest_neighbors_weights(point, data, k, metric, weights)
-    return np.average(data[neighbors], axis=0, weights=weights)
-
 class KNeighborsSpotter():
     def __init__(self, k=5, dist_metric=euclidean):
         self.k = k
@@ -38,19 +32,28 @@ class KNeighborsSpotter():
     def fit(self, X_val, y_val):
         self.X_val = X_val
         self.y_val = y_val
-        
-    def predict(self, X_test, models_list):
-        neighbors = []
-        for x in X_test:
-            distances = self.dist_metric(x, self.X_val)
-            y_sorted = [y for _, y in sorted(zip(distances, self.y_val, self.X_val))]
-            neighbors.append(y_sorted[:self.k])
+
+    def find_similar_neighbors(self, x):
+
+        distances = self.dist_metric(x, self.X_val)
+        y_sorted = [y for _, y in sorted(zip(distances, self.y_val, self.X_val))]
+        return y_sorted[:self.k]
+
+    def predict(self, X_test, pred_columns, target_column, weight_function, bias=False):
+
+        weights = []
+        biases = []
+
+        for x in X_test.iterrows():
+            neighbors = self.find_similar_neighbors(x)
             
-            for model in models_list:
-                preds_val = model.predict(neighbors[2])
-                target_val = neighbors[1]
-                LMAE = mean_absolute_error(target_val, preds_val)
-                e_P = target_val - preds_val
-                
-            
-        return list(map(most_common, neighbors))
+            for column in pred_columns:
+                preds_val = neighbors[column]
+                target_val = neighbors[target_column]
+                w = weight_function(target_val, preds_val)
+                weights.append(w)
+                biases = (target_val - preds_val) / len(target_val)
+        if bias:
+            return (X_test[pred_columns] * np.array(weights).T) + biases/ sum(weights)
+        else:
+            return (X_test[pred_columns]*np.array(weights).T) / sum(weights)
