@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from metrics import *
+from src.metrics import *
 
 # A function which return the most similar elements to a point
 def get_k_nearest_neighbors(point, data, k, metric):
@@ -24,11 +24,12 @@ def error_bias(data, k, metric):
         error_bias.append(np.sum(data[neighbors] - data[i])/k)
     return error_bias
 
+
 class KNeighborsSpotter():
     def __init__(self, k=5, dist_metric=euclidean):
         self.k = k
         self.dist_metric = dist_metric
-        
+
     def fit(self, X_val, y_val):
         self.X_val = X_val
         self.y_val = y_val
@@ -36,24 +37,25 @@ class KNeighborsSpotter():
     def find_similar_neighbors(self, x):
 
         distances = self.dist_metric(x, self.X_val)
-        y_sorted = [y for _, y in sorted(zip(distances, self.y_val, self.X_val))]
+        y_sorted = [y for _, y in sorted(zip(distances, distances.index))]
         return y_sorted[:self.k]
 
-    def predict(self, X_test, pred_columns, target_column, weight_function, bias=False):
+    def predict(self, X_test, features,  pred_columns, target_column, weight_function=w_inverse_LMAE, bias=False):
 
         weights = []
         biases = []
 
         for x in X_test.iterrows():
-            neighbors = self.find_similar_neighbors(x)
-            
-            for column in pred_columns:
-                preds_val = neighbors[column]
-                target_val = neighbors[target_column]
-                w = weight_function(target_val, preds_val)
-                weights.append(w)
-                biases = (target_val - preds_val) / len(target_val)
-        if bias:
-            return (X_test[pred_columns] * np.array(weights).T) + biases/ sum(weights)
-        else:
-            return (X_test[pred_columns]*np.array(weights).T) / sum(weights)
+            x = pd.DataFrame(x[1]).T
+            neighbors = self.find_similar_neighbors(x[features].fillna(value=0))
+
+        for column in pred_columns:
+            preds_val = self.X_val.loc[neighbors][column]
+            target_val = self.y_val.loc[neighbors]
+            w = weight_function(target_val, preds_val)
+            weights.append(w)
+            biases = (target_val - preds_val) / len(target_val)
+            if bias:
+                return (x[pred_columns] * np.array(weights).T+bias).sum(axis=1) / sum(weights)
+            else:
+                return (x[pred_columns] * np.array(weights).T).sum(axis=1) / sum(weights)
