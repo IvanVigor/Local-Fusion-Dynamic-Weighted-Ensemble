@@ -1,14 +1,13 @@
 from src.kspotter import KNeighborsSpotter
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import RidgeCV
+from sklearn.pipeline import make_pipeline
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import fetch_california_housing
+from sklearn.tree import DecisionTreeRegressor
+import numpy as np
 
 if __name__ == "__main__":
-    from sklearn.preprocessing import StandardScaler
-    from sklearn.linear_model import RidgeCV
-    from sklearn.pipeline import make_pipeline
-    from sklearn.model_selection import train_test_split
-    from sklearn.datasets import fetch_california_housing
-    from sklearn.tree import DecisionTreeRegressor
-    import numpy as np
-    import pandas as pd
 
     california_housing = fetch_california_housing(as_frame=True)
 
