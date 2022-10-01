@@ -24,11 +24,15 @@ Finally, calling the prediction method the class will produce the forecasts.
 
 The method returns the prediction list in the same order in which they are provided. The class supports one or multiple samples to forecats.
 
+## Results & Benchmarks
+
+
 ## Literature
 
 Algorithm Applications
 
 - Renewable energy forecasting - Wind [IEEE](https://ieeexplore.ieee.org/document/8272838)
+
 - An ensemble approach to sensor fault detection and signal reconstruction for nuclear system control [Elsevier](https://www.sciencedirect.com/science/article/pii/S0306454910000927)
 
 
