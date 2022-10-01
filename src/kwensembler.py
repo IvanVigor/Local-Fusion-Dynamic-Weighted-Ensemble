@@ -1,8 +1,9 @@
 from src.weights_functions import *
 
 class KWEnsembler():
-    def __init__(self, k=5, dist_metric=euclidean):
+    def __init__(self, k=5, bias='False', dist_metric=euclidean):
         self.k = k
+        self.bias = bias
         self.dist_metric = dist_metric
 
     def fit(self, X_val, y_val):
@@ -20,18 +21,18 @@ class KWEnsembler():
 
         weights = []
         biases = []
+        predictions_ensembled = []
 
-        for x in X_test.iterrows():
-            x = pd.DataFrame(x[1]).T
-            neighbors = self.find_similar_neighbors(x[features].fillna(value=0))
+        for i in range(len(X_test)):
+            neighbors = self.find_similar_neighbors(X_test[features].iloc[i])
 
-        for column in pred_columns:
-            preds_val = self.X_val.loc[neighbors][column]
-            target_val = self.y_val.loc[neighbors]
-            w = weight_function(target_val, preds_val)
-            weights.append(w)
-            biases = (target_val - preds_val) / len(target_val)
-        if bias:
-            return (x[pred_columns] * np.array(weights).T+bias).sum(axis=1) / sum(weights)[0]
-        else:
-            return (x[pred_columns] * np.array(weights).T).sum(axis=1) / sum(weights)[0]
+            for column in pred_columns:
+                preds_val = self.X_val.loc[neighbors][column]
+                target_val = self.y_val.loc[neighbors]
+                w = weight_function(target_val, preds_val)
+                weights.append(w)
+                if self.bias:
+                    biases.append((target_val - preds_val) / len(target_val))
+                predictions_ensembled.append(X_test[features].iloc[i][pred_columns] * np.array(weights).T+bias).sum(axis=1) / sum(weights)[0]
+
+        return predictions_ensembled

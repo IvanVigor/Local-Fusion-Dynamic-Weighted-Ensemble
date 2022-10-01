@@ -40,8 +40,8 @@ if __name__ == "__main__":
     ensemble.fit(X_validation, y_validation)
     results.append(ensemble.predict(X_test.head(5),
                     california_housing.feature_names,
-                    ["one_preds", "two_preds"],
-                    [california_housing.target_names]))
+                    ["one_preds", "two_preds"]
+                    ))
 
     print(np.mean(results-y_test.head(5).values))
     print(np.mean(np.mean(X_test["one_preds"])-y_test.head(5).values))
