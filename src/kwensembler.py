@@ -1,27 +1,6 @@
-from src.metrics import *
 from src.weights_functions import *
 
-def get_k_nearest_neighbors(point, data, k, metric):
-    distances = metric(point, data)
-    return distances.argsort()[:k]
-
-def get_k_nearest_neighbors_weights(point, data, k, metric, weights):
-    distances = metric(point, data)
-    return distances.argsort()[:k], weights(distances)
-
-def predict_inverse_LMAE(point, data, k, metric):
-    neighbors = get_k_nearest_neighbors(point, data, k, metric)
-    return np.average(data[neighbors], axis=0, weights=w_inverse_LMAE)
-
-def error_bias(data, k, metric):
-    error_bias = []
-    for i in range(len(data)):
-        neighbors = get_k_nearest_neighbors(data[i], data, k, metric)
-        error_bias.append(np.sum(data[neighbors] - data[i])/k)
-    return error_bias
-
-
-class KNeighborsSpotter():
+class KWEnsembler():
     def __init__(self, k=5, dist_metric=euclidean):
         self.k = k
         self.dist_metric = dist_metric
