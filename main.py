@@ -1,4 +1,4 @@
-from src.kspotter import KNeighborsSpotter
+from src.kwensembler import KWEnsembler
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import RidgeCV
 from sklearn.pipeline import make_pipeline
@@ -36,12 +36,12 @@ if __name__ == "__main__":
     X_validation["one_preds"] = tree_one.predict(X_validation[california_housing.feature_names])
     X_validation["two_preds"] = tree_two.predict(X_validation[california_housing.feature_names])
     results=[]
-    ensemble = KNeighborsSpotter(5)
+    ensemble = KWEnsembler(5)
     ensemble.fit(X_validation, y_validation)
     results.append(ensemble.predict(X_test.head(5),
                     california_housing.feature_names,
-                    ["one_preds", "two_preds"],
-                    [california_housing.target_names]))
+                    ["one_preds", "two_preds"]
+                    ))
 
     print(np.mean(results-y_test.head(5).values))
     print(np.mean(np.mean(X_test["one_preds"])-y_test.head(5).values))
