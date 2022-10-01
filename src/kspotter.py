@@ -1,8 +1,6 @@
-import pandas as pd
-import numpy as np
 from src.metrics import *
+from src.weights_functions import *
 
-# A function which return the most similar elements to a point
 def get_k_nearest_neighbors(point, data, k, metric):
     distances = metric(point, data)
     return distances.argsort()[:k]
@@ -11,12 +9,10 @@ def get_k_nearest_neighbors_weights(point, data, k, metric, weights):
     distances = metric(point, data)
     return distances.argsort()[:k], weights(distances)
 
-# A function that predicts the value of a point given many different models provided as input using the inverse of the LMAE as weights
 def predict_inverse_LMAE(point, data, k, metric):
     neighbors = get_k_nearest_neighbors(point, data, k, metric)
     return np.average(data[neighbors], axis=0, weights=w_inverse_LMAE)
 
-# A function that evalaute the error bias associated to each machine learning forecast diveded by the number of forecasts
 def error_bias(data, k, metric):
     error_bias = []
     for i in range(len(data)):
@@ -40,7 +36,8 @@ class KNeighborsSpotter():
         y_sorted = [y for _, y in sorted(zip(distances, distances.index))]
         return y_sorted[:self.k]
 
-    def predict(self, X_test, features,  pred_columns, target_column, weight_function=w_inverse_LMAE, bias=False):
+    def predict(self, X_test, features,  pred_columns,
+                weight_function=w_inverse_LMAE, bias=False):
 
         weights = []
         biases = []
@@ -55,7 +52,7 @@ class KNeighborsSpotter():
             w = weight_function(target_val, preds_val)
             weights.append(w)
             biases = (target_val - preds_val) / len(target_val)
-            if bias:
-                return (x[pred_columns] * np.array(weights).T+bias).sum(axis=1) / sum(weights)
-            else:
-                return (x[pred_columns] * np.array(weights).T).sum(axis=1) / sum(weights)
+        if bias:
+            return (x[pred_columns] * np.array(weights).T+bias).sum(axis=1) / sum(weights)[0]
+        else:
+            return (x[pred_columns] * np.array(weights).T).sum(axis=1) / sum(weights)[0]
