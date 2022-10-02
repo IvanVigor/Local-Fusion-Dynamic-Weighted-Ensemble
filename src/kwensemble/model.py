@@ -17,7 +17,7 @@ class KWEnsembler():
         return y_sorted[:self.k]
 
     def predict(self, X_test, features,  pred_columns,
-                weight_function=w_inverse_LMAE, bias=False):
+                weight_function=w_inverse_LMAE):
 
         predictions_ensembled = []
 
