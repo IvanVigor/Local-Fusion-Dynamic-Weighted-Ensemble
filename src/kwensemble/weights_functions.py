@@ -1,4 +1,4 @@
-from src.metrics import *
+from src.kwensemble.metrics import *
 
 def w_inverse_LMAE(actual, predicted):
     """

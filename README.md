@@ -1,6 +1,8 @@
 # Dynamic-Weighted-Ensemble
 
-This repository contain an implementation for the Dynamic Weighted Ensemble (DWE) - Local Fusion method. Find the paper in this ref on [IEEE](https://ieeexplore.ieee.org/document/8272838). DWE is an ensemble techinque that could be used to improve predictions by weighing appropriately the single models contribution.
+This repository contain an implementation for the Dynamic Weighted Ensemble (DWE) - Local Fusion method. Find the paper in this ref on [IEEE](https://ieeexplore.ieee.org/document/8272838). 
+
+Local Fusion is an ensemble techinque that could be used to improve predictions by weighing appropriately the single models contribution.
 
 ## Installation
 
@@ -24,11 +26,29 @@ Finally, calling the prediction method the class will produce the forecasts.
 
 The method returns the prediction list in the same order in which they are provided. The class supports one or multiple samples to forecats.
 
-## Literature
+# Example of using the KWEnsembler class
+
+
+1. Load data
+2. Split data into train, validation and test sets
+3. Train 3 different expert models on the train data
+4. Generate predictions for the test data
+5. Train the ensembler on the train data
+6. Generate predictions for the test data coming from the ensembler
+7. Compare the predictions from the ensembler with the predictions from the expert models
+
+
+## Results & Benchmarks
+
+
+
+
+## Applications
 
 Algorithm Applications
 
 - Renewable energy forecasting - Wind [IEEE](https://ieeexplore.ieee.org/document/8272838)
+
 - An ensemble approach to sensor fault detection and signal reconstruction for nuclear system control [Elsevier](https://www.sciencedirect.com/science/article/pii/S0306454910000927)
 
 

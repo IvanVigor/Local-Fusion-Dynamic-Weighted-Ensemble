@@ -1,4 +1,4 @@
-from src.weights_functions import *
+from src.kwensemble.weights_functions import *
 
 class KWEnsembler():
     def __init__(self, k=5, bias='False', dist_metric=euclidean):
@@ -19,20 +19,21 @@ class KWEnsembler():
     def predict(self, X_test, features,  pred_columns,
                 weight_function=w_inverse_LMAE, bias=False):
 
-        weights = []
-        biases = []
         predictions_ensembled = []
 
         for i in range(len(X_test)):
+
+            weights = np.zeros(len(pred_columns))
+            biases = np.zeros(len(pred_columns))
+
             neighbors = self.find_similar_neighbors(X_test[features].iloc[i])
 
-            for column in pred_columns:
+            for _, column in enumerate(pred_columns):
                 preds_val = self.X_val.loc[neighbors][column]
                 target_val = self.y_val.loc[neighbors]
-                w = weight_function(target_val, preds_val)
-                weights.append(w)
+                weights[_] = weight_function(target_val, preds_val)
                 if self.bias:
-                    biases.append((target_val - preds_val) / len(target_val))
-                predictions_ensembled.append(X_test[features].iloc[i][pred_columns] * np.array(weights).T+bias).sum(axis=1) / sum(weights)[0]
+                    biases[_]=((target_val.T - preds_val) / len(target_val)).sum(axis=1)
+            predictions_ensembled.append(sum((X_test[pred_columns].iloc[i] * np.array(weights).T+biases)) / sum(weights))
 
         return predictions_ensembled
