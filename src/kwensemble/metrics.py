@@ -40,3 +40,15 @@ def root_mean_squared_error(actual, predicted):
     Local Root Mean Squared Error (LRMSE)
     """
     return np.sqrt(np.mean((predicted-actual.T).T)**2)
+
+def mean_squared_error(actual, predicted):
+    """
+    Mean Squared Error (MSE)
+    """
+    return np.mean((predicted-actual.T).T)**2
+
+def root_mean_squared_log_error(actual, predicted):
+    """
+    Local Root Mean Squared Log Error (LRMSLE)
+    """
+    return np.sqrt(np.mean(np.square(np.log(predicted+1) - np.log(actual+1))))
