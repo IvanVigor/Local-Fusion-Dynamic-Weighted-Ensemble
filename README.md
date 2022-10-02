@@ -24,10 +24,24 @@ Finally, calling the prediction method the class will produce the forecasts.
 
 The method returns the prediction list in the same order in which they are provided. The class supports one or multiple samples to forecats.
 
+# Example of using the KWEnsembler class
+
+
+1. Load data
+2. Split data into train and test
+3. Train 3 different expert models on the train data
+4. Generate predictions for the test data
+5. Train the ensembler on the train data
+6. Generate predictions for the test data coming from the ensembler
+7. Compare the predictions from the ensembler with the predictions from the expert models
+
+
 ## Results & Benchmarks
 
 
-## Literature
+
+
+## Applications
 
 Algorithm Applications
 
