@@ -1,6 +1,8 @@
 # Dynamic-Weighted-Ensemble
 
-This repository contain an implementation for the Dynamic Weighted Ensemble (DWE) - Local Fusion method. Find the paper in this ref on [IEEE](https://ieeexplore.ieee.org/document/8272838). DWE is an ensemble techinque that could be used to improve predictions by weighing appropriately the single models contribution.
+This repository contain an implementation for the Dynamic Weighted Ensemble (DWE) - Local Fusion method. Find the paper in this ref on [IEEE](https://ieeexplore.ieee.org/document/8272838). 
+
+Local Fusion is an ensemble techinque that could be used to improve predictions by weighing appropriately the single models contribution.
 
 ## Installation
 
@@ -28,7 +30,7 @@ The method returns the prediction list in the same order in which they are provi
 
 
 1. Load data
-2. Split data into train and test
+2. Split data into train, validation and test sets
 3. Train 3 different expert models on the train data
 4. Generate predictions for the test data
 5. Train the ensembler on the train data
