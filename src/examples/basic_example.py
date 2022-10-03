@@ -28,7 +28,7 @@ Example of using the KWEnsembler class
 california_housing = fetch_california_housing(as_frame=True)
 
 # 2. Split data into train, validation test
-X_train, y_train,X_validation, y_validation, X_test, y_test = split_sets(california_housing.frame, 0.80, 0.10, 0.10,
+X_train, y_train,X_validation, y_validation, X_test, y_test = split_sets(california_housing.frame, 0.70, 0.20, 0.10,
                                                                          california_housing.target_names[0])
 
 # 3. Train 3 different expert models on train data
@@ -63,20 +63,8 @@ results = ensemble.predict(X_test,
                 ["one_preds", "two_preds", "three_preds"]
                 )
 
-
-print(metrics_table(y_test, np.array(results)))
-
-print("MAE Ensemble: {}".format(mean_absolute_error(y_test, results)))
-print("MAE Model 1: {}".format(mean_absolute_error(y_test, X_test["one_preds"])))
-print("MAE Model 2: {}".format(mean_absolute_error(y_test, X_test["two_preds"])))
-print("MAE Model 3: {}".format(mean_absolute_error(y_test, X_test["three_preds"])))
-
-print("MAPE Ensemble: {}".format(mean_absolute_percentage_error(y_test, results)))
-print("MAPE Model 1: {}".format(mean_absolute_percentage_error(y_test, X_test["one_preds"])))
-print("MAPE Model 2: {}".format(mean_absolute_percentage_error(y_test, X_test["two_preds"])))
-print("MAPE Model 3: {}".format(mean_absolute_percentage_error(y_test, X_test["three_preds"])))
-
-print("RMSE Ensemble: {}".format(root_mean_squared_log_error(y_test, np.array(results))))
-print("RMSE Model 1: {}".format(root_mean_squared_log_error(y_test, X_test["one_preds"])))
-print("RMSE Model 2: {}".format(root_mean_squared_log_error(y_test, X_test["two_preds"])))
-print("RMSE Model 3: {}".format(root_mean_squared_log_error(y_test, X_test["three_preds"])))
+# 6. Generate predictions for the test data coming from the ensembler
+print(metrics_table(y_test, np.array(results), "Esemble"))
+print(metrics_table(y_test, X_test["one_preds"], "Tree"))
+print(metrics_table(y_test, X_test["two_preds"], "Tree"))
+print(metrics_table(y_test, X_test["three_preds"], "RidgeCV"))

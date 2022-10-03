@@ -33,7 +33,7 @@ class KWEnsembler():
                 target_val = self.y_val.loc[neighbors]
                 weights[_] = weight_function(target_val, preds_val)
                 if self.bias:
-                    biases[_]=((target_val.T - preds_val) / len(target_val)).sum(axis=1)
-            predictions_ensembled.append(sum((X_test[pred_columns].iloc[i] * np.array(weights).T+biases)) / sum(weights))
+                    biases[_]=sum((target_val.T - preds_val) / len(target_val))
+            predictions_ensembled.append(sum(((X_test[pred_columns].iloc[i]-biases)*np.array(weights).T)) / sum(weights))
 
         return predictions_ensembled

@@ -53,15 +53,16 @@ def root_mean_squared_log_error(actual, predicted):
     """
     return np.sqrt(np.mean(np.square(np.log(predicted+1) - np.log(actual+1))))
 
-# A function that create a table with results of the metrics
-def metrics_table(actual, predicted):
+
+def metrics_table(actual, predicted, model_name):
     """
-    Create a table with results of the metrics
+    Create a table with pivot with results of multiple models and metrics
     """
-    metrics = pd.DataFrame()
-    metrics['MAPE'] = mean_absolute_percentage_error(actual, predicted)
-    metrics['MAE'] = mean_absolute_error(actual, predicted)
-    metrics['RMSE'] = root_mean_squared_error(actual, predicted)
-    metrics['MSE'] = mean_squared_error(actual, predicted)
-    metrics['RMSLE'] = root_mean_squared_log_error(actual, predicted)
+    metrics = pd.DataFrame(columns=['Model', 'MAPE', 'MAE', 'RMSE', 'MSE', 'RMSLE'],
+                           data=[[model_name, mean_absolute_percentage_error(actual, predicted),
+                                  mean_absolute_error(actual, predicted),
+                                  root_mean_squared_error(actual, predicted),
+                                  mean_squared_error(actual, predicted),
+                                  root_mean_squared_log_error(actual, predicted)]])
+
     return metrics
