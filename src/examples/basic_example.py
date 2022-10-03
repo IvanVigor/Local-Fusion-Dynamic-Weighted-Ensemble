@@ -63,6 +63,9 @@ results = ensemble.predict(X_test,
                 ["one_preds", "two_preds", "three_preds"]
                 )
 
+
+print(metrics_table(y_test, np.array(results)))
+
 print("MAE Ensemble: {}".format(mean_absolute_error(y_test, results)))
 print("MAE Model 1: {}".format(mean_absolute_error(y_test, X_test["one_preds"])))
 print("MAE Model 2: {}".format(mean_absolute_error(y_test, X_test["two_preds"])))
