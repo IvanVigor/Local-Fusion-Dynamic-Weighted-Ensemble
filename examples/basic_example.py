@@ -1,6 +1,5 @@
 from src.kwensemble.model import KWEnsembler
 from src.kwensemble.utils import *
-from src.kwensemble.metrics import *
 from src.kwensemble.weights_functions import *
 
 from sklearn.preprocessing import StandardScaler
