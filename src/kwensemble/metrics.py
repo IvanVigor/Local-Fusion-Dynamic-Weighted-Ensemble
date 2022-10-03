@@ -58,11 +58,10 @@ def metrics_table(actual, predicted, model_name):
     """
     Create a table with pivot with results of multiple models and metrics
     """
-    metrics = pd.DataFrame(columns=['Model', 'MAPE', 'MAE', 'RMSE', 'MSE', 'RMSLE'],
+    metrics = pd.DataFrame(columns=['Model', 'MAPE', 'MAE', 'RMSE', 'RMSLE'],
                            data=[[model_name, mean_absolute_percentage_error(actual, predicted),
                                   mean_absolute_error(actual, predicted),
                                   root_mean_squared_error(actual, predicted),
-                                  mean_squared_error(actual, predicted),
                                   root_mean_squared_log_error(actual, predicted)]])
 
     return metrics

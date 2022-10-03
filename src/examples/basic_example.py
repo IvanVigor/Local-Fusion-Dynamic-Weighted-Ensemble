@@ -1,6 +1,7 @@
 from src.kwensemble.model import KWEnsembler
 from src.kwensemble.utils import *
 from src.kwensemble.metrics import *
+from src.kwensemble.weights_functions import *
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import RidgeCV
@@ -56,12 +57,12 @@ X_validation["two_preds"] = TreeRegressor_two.predict(X_validation[california_ho
 X_validation["three_preds"] = model.predict(X_validation[california_housing.feature_names])
 
 # 5. Train the ensembler on the train data
-ensemble = KWEnsembler(30, bias=False)
-ensemble.fit(X_validation, y_validation)
+ensemble = KWEnsembler(35, bias=False)
+ensemble.fit(X_validation, y_validation, california_housing.feature_names)
 results = ensemble.predict(X_test,
                 california_housing.feature_names,
-                ["one_preds", "two_preds", "three_preds"]
-                )
+                ["one_preds", "two_preds", "three_preds"],
+                weight_function=w_inverse_log_LMAE)
 
 # 6. Generate predictions for the test data coming from the ensembler
 print(metrics_table(y_test, np.array(results), "Esemble"))
