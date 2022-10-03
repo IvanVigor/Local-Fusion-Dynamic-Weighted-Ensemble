@@ -1,6 +1,8 @@
-# Dynamic-Weighted-Ensemble
+# Dynamic Weighted Ensemble - Local Fusion
 
 This repository contain an implementation for the Dynamic Weighted Ensemble (DWE) - Local Fusion method. Find the paper in this ref on [IEEE](https://ieeexplore.ieee.org/document/8272838). 
+
+![Arch](https://github.com/IvanVigor/IvanVigor.github.io/blob/main/imgs/dwe.png?raw=true)
 
 Local Fusion is an ensemble techinque that could be used to improve predictions by weighing appropriately the single models contribution.
 
@@ -26,12 +28,12 @@ Finally, calling the prediction method the class will produce the forecasts.
 
 The method returns the prediction list in the same order in which they are provided. The class supports one or multiple samples to forecats.
 
-# Example of using the KWEnsembler class
+## Example of using the KWEnsembler class
 
 
 1. Load data
 2. Split data into train, validation and test sets
-3. Train 3 different expert models on the train data
+3. Train multiple expert models on the train data
 4. Generate predictions for the test data
 5. Train the ensembler on the train data
 6. Generate predictions for the test data coming from the ensembler
