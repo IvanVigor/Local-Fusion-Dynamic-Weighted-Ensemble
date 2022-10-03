@@ -8,6 +8,9 @@ class KWEnsembler():
         self.dist_metric = dist_metric
 
     def fit(self, X_val, y_val, range_min=0, range_max=1):
+        """
+        Fits the ensemble to the validation set
+        """
 
         self.X_val = X_val
         self.y_val = y_val
@@ -21,7 +24,9 @@ class KWEnsembler():
 
     def predict(self, X_test, features,  pred_columns,
                 weight_function=w_inverse_LMAE, range_min=-1, range_max=1):
-
+        """
+        Predicts the target values for the test set using the ensemble
+        """
         self.x_scaler = MinMaxScaler([range_min, range_max])
         self.X_val[features] = self.x_scaler.fit_transform(self.X_val[features])
         predictions_ensembled = []
@@ -39,6 +44,6 @@ class KWEnsembler():
                 weights[_] = weight_function(target_val, preds_val)
                 if self.bias:
                     biases[_]=sum((target_val.T - preds_val) / len(target_val))
-            predictions_ensembled.append(sum(((X_test[pred_columns].iloc[i]-biases)*np.array(weights).T)) / sum(weights))
+            predictions_ensembled.append(sum(((X_test[pred_columns].iloc[i]-biases)*weights.T)) / sum(weights))
 
         return predictions_ensembled
