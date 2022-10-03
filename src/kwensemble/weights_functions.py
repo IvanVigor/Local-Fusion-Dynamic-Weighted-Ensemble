@@ -6,11 +6,11 @@ def w_inverse_LMAE(actual, predicted):
     """
     return 1/mean_absolute_error(actual, predicted)
 
-def w_inverse_log_LMAE(residuals):
+def w_inverse_log_LMAE(actual, predicted):
     """
     Inverse Log Local MAE
     """
-    np.log(max(abs(residuals))/mean_absolute_error(residuals))
+    return np.log(max(abs(actual-predicted))/mean_absolute_error(actual, predicted))
 
 def get_k_nearest_neighbors(point, data, k, metric):
     """
