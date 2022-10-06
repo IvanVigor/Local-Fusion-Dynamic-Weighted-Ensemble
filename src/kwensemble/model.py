@@ -16,6 +16,9 @@ class KWEnsembler():
         self.y_val = y_val
 
     def find_similar_neighbors(self, x, similar_space):
+        """
+        Finds the k nearest neighbors of x in the similar_space
+        """
 
         sample = self.x_scaler.transform([x])
         distances = self.dist_metric(sample, similar_space)
