@@ -61,7 +61,7 @@ X_validation["one_preds_r"] = model_one.predict(X_validation[california_housing.
 X_validation["one_preds_reg"] = reg.predict(X_validation[california_housing.feature_names])
 
 # 5. Train the ensembler on the train data
-ensemble = KWEnsembler(25, bias=False)
+ensemble = KWEnsembler(50, bias=False)
 ensemble.fit(X_validation, y_validation, california_housing.feature_names)
 results = ensemble.predict(X_test,
                 california_housing.feature_names,
