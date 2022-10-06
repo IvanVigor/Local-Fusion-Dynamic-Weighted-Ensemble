@@ -24,10 +24,10 @@ def divide_sets(df, train_size, val_size, test_size):
 def euclidean_v(x, y):
     return np.sqrt(np.sum((x - y)**2))
 
-# A function which returns the manhattan distance between two vectors
+
 def manhattan_v(x, y):
     return np.sum(np.abs(x - y))
 
-# A function which returns the cosine distance between two vectors
+
 def cosine_v(x, y):
     return 1 - np.dot(x, y) / (np.linalg.norm(x) * np.linalg.norm(y))

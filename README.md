@@ -1,10 +1,10 @@
 # Dynamic Weighted Ensemble - Local Fusion
 
-This repository contain an implementation for the Dynamic Weighted Ensemble (DWE) - Local Fusion method. Find the paper in this ref on [IEEE](https://ieeexplore.ieee.org/document/8272838). 
-
-![Arch](https://github.com/IvanVigor/IvanVigor.github.io/blob/main/imgs/dwe.png?raw=true)
+This repository contain an implementation for the Dynamic Weighted Ensemble (DWE) - Local Fusion method. Find the paper in this ref on [IEEE](https://ieeexplore.ieee.org/document/8272838).
 
 Local Fusion is an ensemble techinque, which can be used to improve predictions by weighing appropriately the single models contribution.
+
+![Arch](https://github.com/IvanVigor/IvanVigor.github.io/blob/main/imgs/dwe.png?raw=true)
 
 ## Installation
 
@@ -41,6 +41,7 @@ The method returns the prediction list in the same order in which they are provi
 
 
 ## Results & Benchmarks
+
 
 
 

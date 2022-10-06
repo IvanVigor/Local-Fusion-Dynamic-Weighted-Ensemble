@@ -64,4 +64,5 @@ def metrics_table(actual, predicted, model_name):
                                   root_mean_squared_error(actual, predicted),
                                   root_mean_squared_log_error(actual, predicted)]])
 
-    return metrics
+    return metrics.to_markdown()
+
