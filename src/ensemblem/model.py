@@ -1,4 +1,4 @@
-from src.kwensemble.weights_functions import *
+from src.ensemblem.weights_functions import *
 from sklearn.preprocessing import MinMaxScaler
 
 class KWEnsembler():

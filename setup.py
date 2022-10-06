@@ -4,7 +4,7 @@ with open("README.md", "r", encoding = "utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name = "KWEnsembler",
+    name = "ensemblem",
     version = "0.1",
     author = "Ivan Vigorito",
     author_email = "ivanvigorito1994@gmail.com",

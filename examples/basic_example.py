@@ -1,13 +1,12 @@
-from src.kwensemble.model import KWEnsembler
-from src.kwensemble.utils import *
-from src.kwensemble.weights_functions import *
+from src.ensemblem.model import KWEnsembler
+from src.ensemblem.utils import *
+from src.ensemblem.weights_functions import *
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import RidgeCV
 from sklearn.pipeline import make_pipeline
 from sklearn.datasets import fetch_california_housing
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.linear_model import LinearRegression
 
 import numpy as np
 
