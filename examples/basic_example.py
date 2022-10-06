@@ -7,6 +7,7 @@ from sklearn.linear_model import RidgeCV
 from sklearn.pipeline import make_pipeline
 from sklearn.datasets import fetch_california_housing
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.linear_model import LinearRegression
 
 import numpy as np
 
@@ -28,43 +29,49 @@ Example of using the KWEnsembler class
 california_housing = fetch_california_housing(as_frame=True)
 
 # 2. Split data into train, validation test
-X_train, y_train,X_validation, y_validation, X_test, y_test = split_sets(california_housing.frame, 0.70, 0.20, 0.10,
+X_train, y_train,X_validation, y_validation, X_test, y_test = split_sets(california_housing.frame.sample(frac=1), 0.70, 0.20, 0.10,
                                                                          california_housing.target_names[0])
 
 # 3. Train 3 different expert models on train data
-alphas = np.logspace(-3, 1, num=30)
-model = make_pipeline(StandardScaler(),
+alphas = np.logspace(-3, 1, num=50)
+model_one = make_pipeline(StandardScaler(),
                       RidgeCV(alphas=alphas))
+
+model_one.fit(X_train, y_train)
+
 TreeRegressor_one = DecisionTreeRegressor(max_depth=3,
                                           random_state=123)
 TreeRegressor_two = DecisionTreeRegressor(max_depth=5,
                                           random_state=123)
-model = make_pipeline(StandardScaler(),
-                      RidgeCV(alphas=alphas))
-model.fit(X_train, y_train)
 
 TreeRegressor_one.fit(X_train, y_train)
 TreeRegressor_two.fit(X_train, y_train)
 
-# 4. Generate predictions for the test and over validatio sets
-X_test["one_preds"] = TreeRegressor_one.predict(X_test[california_housing.feature_names])
-X_test["two_preds"] = TreeRegressor_two.predict(X_test[california_housing.feature_names])
-X_test["three_preds"] = model.predict(X_test[california_housing.feature_names])
+reg = LinearRegression().fit(X_train, y_train)
 
-X_validation["one_preds"] = TreeRegressor_one.predict(X_validation[california_housing.feature_names])
-X_validation["two_preds"] = TreeRegressor_two.predict(X_validation[california_housing.feature_names])
-X_validation["three_preds"] = model.predict(X_validation[california_housing.feature_names])
+# 4. Generate predictions for the test and over validatio sets
+X_test["one_preds_rf"] = TreeRegressor_one.predict(X_test[california_housing.feature_names])
+X_test["two_preds_rf"] = TreeRegressor_two.predict(X_test[california_housing.feature_names])
+X_test["one_preds_r"] = model_one.predict(X_test[california_housing.feature_names])
+X_test["one_preds_reg"] = reg.predict(X_test[california_housing.feature_names])
+
+X_validation["one_preds_rf"] = TreeRegressor_one.predict(X_validation[california_housing.feature_names])
+X_validation["two_preds_rf"] = TreeRegressor_two.predict(X_validation[california_housing.feature_names])
+X_validation["one_preds_r"] = model_one.predict(X_validation[california_housing.feature_names])
+X_validation["one_preds_reg"] = reg.predict(X_validation[california_housing.feature_names])
 
 # 5. Train the ensembler on the train data
-ensemble = KWEnsembler(35, bias=False)
+ensemble = KWEnsembler(25, bias=False)
 ensemble.fit(X_validation, y_validation, california_housing.feature_names)
 results = ensemble.predict(X_test,
                 california_housing.feature_names,
-                ["one_preds", "two_preds", "three_preds"],
+                ["one_preds_rf", "two_preds_rf",
+                 "one_preds_r"],
                 weight_function=w_inverse_log_LMAE)
 
 # 6. Generate predictions for the test data coming from the ensembler
 print(metrics_table(y_test, np.array(results), "Esemble"))
-print(metrics_table(y_test, X_test["one_preds"], "Tree"))
-print(metrics_table(y_test, X_test["two_preds"], "Tree"))
-print(metrics_table(y_test, X_test["three_preds"], "RidgeCV"))
+print(metrics_table(y_test, X_test["one_preds_rf"], "Tree"))
+print(metrics_table(y_test, X_test["two_preds_rf"], "Tree"))
+print(metrics_table(y_test, X_test["one_preds_r"], "RidgeCV"))
+

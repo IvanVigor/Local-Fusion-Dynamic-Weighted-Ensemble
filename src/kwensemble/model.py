@@ -23,7 +23,7 @@ class KWEnsembler():
         return y_sorted[:self.k]
 
     def predict(self, X_test, features,  pred_columns,
-                weight_function=w_inverse_LMAE, range_min=-1, range_max=1):
+                weight_function=w_inverse_LMAE, range_min=0, range_max=1):
         """
         Predicts the target values for the test set using the ensemble
         """
