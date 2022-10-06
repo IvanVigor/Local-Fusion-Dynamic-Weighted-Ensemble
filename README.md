@@ -35,14 +35,19 @@ The method returns the prediction list in the same order in which they are provi
 2. Split data into train, validation and test sets
 3. Train multiple expert models on the train data
 4. Generate predictions for the test data
-5. Train the ensembler on the train data
-6. Generate predictions for the test data coming from the ensembler
+5. Train the ensembler on validation data
+6. Generate predictions for the test dataset coming from the ensembler
 7. Compare the predictions from the ensembler with the predictions from the expert models
 
 
 ## Results & Benchmarks
 
-
+|    | Model   |     MAPE |      MAE |      RMSE |    RMSLE |
+|---:|:--------|---------:|---------:|----------:|---------:|
+|  0 | ***Esemble*** | **0.304129** | **0.499381** | **0.0016118** | **0.211999** |
+|  1 | Tree    | 0.370919 | 0.593606 | 0.00755926 | 0.249373 |
+|  2 | Tree    | 0.319638 | 0.511249 | 0.00224047 | 0.225012 |
+|  3 | RidgeCV | 0.31537 | 0.531177 | 0.0131216 | 0.238018 |
 
 
 
