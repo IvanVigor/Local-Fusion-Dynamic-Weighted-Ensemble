@@ -1,6 +1,6 @@
-from src.ensemblem.model import KWEnsembler
-from src.ensemblem.utils import *
-from src.ensemblem.weights_functions import *
+from ensemblem.model import KWEnsembler
+from ensemblem.utils import *
+from ensemblem.weights_functions import *
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import RidgeCV

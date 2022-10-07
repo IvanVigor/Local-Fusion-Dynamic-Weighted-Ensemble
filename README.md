@@ -11,7 +11,7 @@ Local Fusion is an ensemble techinque that could be used to improve predictions 
 [Pypi](https://pypi.org/project/ensemblem/0.1/)
 
 ~~~
-	pip install ensemblem==0.1
+	pip install ensemblem==0.2.1
 ~~~
 
 ## Usage
@@ -19,6 +19,7 @@ Local Fusion is an ensemble techinque that could be used to improve predictions 
 Let's define the KWEnsembler class. And then define the feature space in which the neighbours should be found.
 
 ~~~
+	from ensemblem.model import KWEnsembler
 	ensemble = KWEnsembler(5)
 	ensemble.fit(X_validation, y_validation)
 ~~~

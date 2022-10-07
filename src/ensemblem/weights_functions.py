@@ -1,4 +1,4 @@
-from src.ensemblem.metrics import *
+from ensemblem.metrics import *
 
 def w_inverse_LMAE(actual, predicted):
     """

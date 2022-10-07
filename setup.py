@@ -5,7 +5,7 @@ with open("README.md", "r", encoding = "utf-8") as fh:
 
 setuptools.setup(
     name = "ensemblem",
-    version = "0.1",
+    version = "0.2.1",
     author = "Ivan Vigorito",
     author_email = "ivanvigorito1994@gmail.com",
     description = "Dynamic Weighted Ensemble - Local Fusion",
