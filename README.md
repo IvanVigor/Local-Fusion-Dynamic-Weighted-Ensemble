@@ -11,7 +11,7 @@ Local Fusion is an ensemble techinque that could be used to improve predictions 
 [Pypi](https://pypi.org/project/ensemblem/0.1/)
 
 ~~~
-	pip install ensemblem==0.2.1
+	pip install ensemblem==0.2.3
 ~~~
 
 ## Usage
