@@ -70,9 +70,13 @@ Algorithm Applications
 
 ## Possible Improvements
 
--  When dealing with features coming with magnitude and different meaning, it's relevant to normalize values appropriately.
+- [Docs] General improveiments over documentions
 
-- Search space without euclidean measure
+- [Code] Clean-code 
+
+- [Engineering] When dealing with features coming with magnitude and different meaning, it's relevant to normalize values appropriately.
+
+- [Engineering] Search space without euclidean measure
 
 
 ## Licence
