@@ -1,5 +1,5 @@
-src
-===
+Ensemblem Models
+================
 
 .. toctree::
    :maxdepth: 4

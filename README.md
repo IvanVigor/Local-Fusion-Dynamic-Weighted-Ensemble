@@ -16,6 +16,8 @@ Local Fusion is an ensemble techinque that could be used to improve predictions 
 
 ```
 
+[Docs - ReadTheDocs](https://local-fusion-dynamic-weighted-ensemble.readthedocs.io/en/latest/) (UnderReview)
+
 ## Usage
 
 Let's define the KWEnsembler class. And then define the feature space in which the neighbours should be found.
