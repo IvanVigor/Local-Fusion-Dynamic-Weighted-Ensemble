@@ -82,3 +82,6 @@ Algorithm Applications
 ## Licence
 The code is provided with a MIT licence. 
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
