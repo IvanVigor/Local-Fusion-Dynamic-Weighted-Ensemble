@@ -63,7 +63,7 @@ The method returns the prediction list in the same order in which they are provi
 
 
 
-## Applications
+## Credits
 
 Algorithm Applications
 

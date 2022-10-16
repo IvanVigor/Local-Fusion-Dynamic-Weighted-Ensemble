@@ -26,7 +26,7 @@ Installation
 Usage
 -----
 
-Let's define the KWEnsembler class. And then define the feature space in which the neighbours should be found.
+First of all, you need to define the KWEnsembler class. Next, it's required to provide the search-space (it could be the validation set) in which the ensembler will find the nearest elemets to the generic test sample.
 
 
 
@@ -51,9 +51,7 @@ forecasts.
 
 ::
 
-
-The method returns the prediction list in the same order in which they
-are provided. The class supports one or multiple samples to forecats.
+The method returns the prediction list in the same order in which they are provided. The class supports one or multiple samples to forecasts.
 
 Example of using the KWEnsembler class
 --------------------------------------
@@ -94,7 +92,7 @@ Algorithm Applications
 Possible Improvements
 ---------------------
 
--  [Docs] General improveiments over documentions
+-  [Docs] General improvements over documentations
 
 -  [Code] Clean-code
 
