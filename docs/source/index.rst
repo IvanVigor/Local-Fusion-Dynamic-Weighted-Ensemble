@@ -12,7 +12,7 @@ KWEnsembler's documentation
    :maxdepth: 2
    :caption: Contents:
 
-   ensemblem.rst
+   modules.rst
 
 
 
