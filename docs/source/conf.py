@@ -32,6 +32,6 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 # simply add the extension to your list of extensions
-extensions = ['myst_parser']
+#extensions = ['myst_parser']
 
-source_suffix = ['.rst', '.md']
+#source_suffix = ['.rst', '.md']

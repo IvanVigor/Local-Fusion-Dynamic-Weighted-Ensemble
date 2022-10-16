@@ -1,5 +1,5 @@
-Dynamic Weighted Ensemble - Local Fusion
-========================================
+Dynamic Weighted Ensemble - Local Fusion [DOCUMENTATION UNDER REVIEW]
+=====================================================================
 
 This repository contain an implementation for the Dynamic Weighted
 Ensemble (DWE) - Local Fusion method. Find the paper in this ref on
