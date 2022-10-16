@@ -24,6 +24,7 @@ class KWEnsembler():
     def fit(self, X_val, y_val, range_min=0, range_max=1):
         """
         Fits the ensemble to the validation set
+
         """
 
         self.X_val = X_val

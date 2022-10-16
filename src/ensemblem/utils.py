@@ -20,14 +20,3 @@ def divide_sets(df, train_size, val_size, test_size):
     val_size = int(val_size * len(df))
     test_size = int(test_size * len(df))
     return df[:train_size], df[train_size:train_size+val_size], df[train_size+val_size:train_size+val_size+test_size]
-
-def euclidean_v(x, y):
-    return np.sqrt(np.sum((x - y)**2))
-
-
-def manhattan_v(x, y):
-    return np.sum(np.abs(x - y))
-
-
-def cosine_v(x, y):
-    return 1 - np.dot(x, y) / (np.linalg.norm(x) * np.linalg.norm(y))
