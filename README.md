@@ -4,7 +4,7 @@ This repository contain an implementation for the Dynamic Weighted Ensemble (DWE
 
 Local Fusion is an ensemble techinque that could be used to improve predictions by weighing appropriately the single models contribution.
 
-<img src="https://github.com/IvanVigor/IvanVigor.github.io/blob/main/imgs/dwe.png?raw=true)" width="900" height="500"/>
+![imgs](https://github.com/IvanVigor/IvanVigor.github.io/blob/main/imgs/dwe.png?raw=true)
 
 ## Installation
 
@@ -37,7 +37,7 @@ Finally, calling the prediction method the class will produce the forecasts.
                     other_model_prediction_columns)
 ```
 
-The method returns the prediction list in the same order in which they are provided. The class supports one or multiple samples to forecats.
+The method returns the prediction list in the same order in which they are provided. The class supports one or multiple samples to forecasts.
 
 
 
@@ -75,13 +75,13 @@ Algorithm Applications
 
 ## Possible Improvements
 
-- [Docs] General improveiments over documentions
+- [Docs] General improvements over documentations
 
 - [Code] Clean-code 
 
 - [Engineering] When dealing with features coming with magnitude and different meaning, it's relevant to normalize values appropriately.
 
-- [Engineering] Search space without euclidean measure
+- [Engineering] Additional measures to the simple euclidean-space
 
 
 ## Licence
