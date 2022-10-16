@@ -3,26 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-KWEnsembler's documentation
-=======================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   modules
-   ensemblem
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-Introduction [WORKING ON]
-=========================
+Introduction
+============
 
 This repository contain an implementation for the Dynamic Weighted Ensemble (DWE) - Local Fusion method. Find the paper in this ref on [IEEE](https://ieeexplore.ieee.org/document/8272838).
 

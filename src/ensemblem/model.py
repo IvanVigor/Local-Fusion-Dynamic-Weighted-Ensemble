@@ -1,5 +1,6 @@
-from src.ensemblem.weights_functions import *
+from .weights_functions import *
 from sklearn.preprocessing import MinMaxScaler
+from typing import List, Tuple, Optional, Callable
 
 class KWEnsembler():
     """Summary

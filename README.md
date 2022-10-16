@@ -10,27 +10,30 @@ Local Fusion is an ensemble techinque that could be used to improve predictions 
 
 [Pypi](https://pypi.org/project/ensemblem/0.1/)
 
-~~~
-	pip install ensemblem==0.2.1
-~~~
+```{r setup, include=FALSE}
+
+	pip install ensemblem
+
+```
 
 ## Usage
 
 Let's define the KWEnsembler class. And then define the feature space in which the neighbours should be found.
 
-~~~
+
+```{r setup, include=FALSE}
 	from ensemblem.model import KWEnsembler
 	ensemble = KWEnsembler(5)
 	ensemble.fit(X_validation, y_validation)
-~~~
+```
 
 Finally, calling the prediction method the class will produce the forecasts.
 
-~~~
+```{r setup, include=FALSE}
 	ensemble.predict(X_test,
                     features_space,
                     other_model_prediction_columns)
-~~~
+```
 
 The method returns the prediction list in the same order in which they are provided. The class supports one or multiple samples to forecats.
 
@@ -83,5 +86,7 @@ Algorithm Applications
 The code is provided with a MIT licence. 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 
 
