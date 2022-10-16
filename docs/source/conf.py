@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.abspath('../../src/ensemblem/'))
 project = 'KWEnsembler'
 copyright = '2022, Ivan Vigorito'
 author = 'Ivan Vigorito'
-release = '0.2.3'
+release = '0.2.7'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -30,3 +30,8 @@ exclude_patterns = []
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+# simply add the extension to your list of extensions
+extensions = ['myst_parser']
+
+source_suffix = ['.rst', '.md']
