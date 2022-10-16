@@ -20,8 +20,7 @@ Local Fusion is an ensemble techinque that could be used to improve predictions 
 
 ## Usage
 
-Let's define the KWEnsembler class. And then define the feature space in which the neighbours should be found.
-
+First of all, you need to define the KWEnsembler class. Next, it's required to provide the search-space (it could be the validation set) in which the ensembler will find the nearest elemets to the generic test sample.
 
 ```{r setup, include=FALSE}
 	from ensemblem.model import KWEnsembler
