@@ -2,6 +2,19 @@ from src.ensemblem.weights_functions import *
 from sklearn.preprocessing import MinMaxScaler
 
 class KWEnsembler():
+    """Summary
+
+    This class implements the K-Weighted Ensembler model.
+    It is an ensemble model that uses the k-nearest neighbors of a sample to predict its target value.
+    The weights of the neighbors are calculated using a weight function.
+    The bias of the neighbors can be added to the prediction.
+
+    :param [ParamName]: k, bias, dist_metric
+    :type [ParamName]: int, bool, function
+
+    :return: Predictions of the target values for the test set
+    :rtype: bytearray
+    """
     def __init__(self, k=5, bias='False', dist_metric=euclidean):
         self.k = k
         self.bias = bias

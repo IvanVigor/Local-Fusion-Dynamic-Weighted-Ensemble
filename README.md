@@ -4,7 +4,7 @@ This repository contain an implementation for the Dynamic Weighted Ensemble (DWE
 
 Local Fusion is an ensemble techinque that could be used to improve predictions by weighing appropriately the single models contribution.
 
-![Arch](https://github.com/IvanVigor/IvanVigor.github.io/blob/main/imgs/dwe.png?raw=true)
+<img src="https://github.com/IvanVigor/IvanVigor.github.io/blob/main/imgs/dwe.png?raw=true)" width="900" height="500"/>
 
 ## Installation
 
