@@ -8,7 +8,7 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../src/ensemblem/'))
+sys.path.insert(0, os.path.abspath('../../src/'))
 
 project = 'KWEnsembler'
 copyright = '2022, Ivan Vigorito'
