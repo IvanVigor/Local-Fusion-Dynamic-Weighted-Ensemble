@@ -25,7 +25,6 @@ class KWEnsembler():
         """
         Fits the ensemble by creating the search space
         """
-
         self.X_val = X_val
         self.y_val = y_val
 
