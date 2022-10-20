@@ -22,7 +22,6 @@ Installation
 ::
 
 
-
 Usage
 -----
 
@@ -31,6 +30,7 @@ First of all, you need to define the KWEnsembler class. Next, it's required to p
 ::
 
        from ensemblem.model import KWEnsembler
+
        ensemble = KWEnsembler(5)
        ensemble.fit(X_validation, y_validation)
 
@@ -53,16 +53,17 @@ Example of using the KWEnsembler class
 --------------------------------------
 
 1. Load data (in this case we will use the california housing dataset). Refs to the dataset here: `California Housing <https://inria.github.io/scikit-learn-mooc/python_scripts/datasets_california_housing.html>`__ 
+
 ::
 
-california_housing = fetch_california_housing(as_frame=True)
+   california_housing = fetch_california_housing(as_frame=True)
 
 ::
 
 2. Split data into train, validation and test sets. The validation dataset will be used in the following steps for k-nearest search.
 ::
 
-X_train, y_train,X_validation, y_validation, X_test, y_test = split_sets(california_housing.frame.sample(frac=1), 0.70, 0.20, 0.10,
+   X_train, y_train,X_validation, y_validation, X_test, y_test = split_sets(california_housing.frame.sample(frac=1), 0.70, 0.20, 0.10,
                                                                          california_housing.target_names[0])
 
 ::
@@ -70,43 +71,42 @@ X_train, y_train,X_validation, y_validation, X_test, y_test = split_sets(califor
 
 ::
 
-TreeRegressor_one = DecisionTreeRegressor(max_depth=3,
+   TreeRegressor_one = DecisionTreeRegressor(max_depth=3,
                                           random_state=123)
                     ...
-
-TreeRegressor_one.fit(X_train, y_train)
+   TreeRegressor_one.fit(X_train, y_train)
 
 ::
 4. Generate predictions for the test data
 ::
 
-X_test["one_preds_rf"] = TreeRegressor_one.predict(X_test[california_housing.feature_names])
+   X_test["one_preds_rf"] = TreeRegressor_one.predict(X_test[california_housing.feature_names])
 
 ::
 5. Train the ensembler on validation data
 ::
 
-ensemble = KWEnsembler(50, bias=False)
-ensemble.fit(X_validation, y_validation, california_housing.feature_names)
-
-
+   ensemble = KWEnsembler(50, bias=False)
+   nsemble.fit(X_validation, y_validation, california_housing.feature_names)
 
 ::
+
 6. Generate predictions for the test dataset coming from the ensembler
 ::
 
-results = ensemble.predict(X_test,
+   results = ensemble.predict(X_test,
                 california_housing.feature_names,
                 ["one_preds_rf", "two_preds_rf",
                  "one_preds_r"],
                 weight_function=w_inverse_log_LMAE)
 
 ::
+
 7. Compare the predictions from the ensembler with the predictions from
    the expert models
 ::
 
-print(metrics_table(y_test, X_test["one_preds_rf"], "Tree"))
+   print(metrics_table(y_test, X_test["one_preds_rf"], "Tree"))
 
 ::
 
