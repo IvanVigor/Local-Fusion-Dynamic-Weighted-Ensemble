@@ -10,7 +10,7 @@ class KWEnsembler():
     The weights of the neighbors are calculated using a weight function.
     The bias of the neighbors can be added to the prediction.
 
-    :param [ParamName]: k, bias, dist_metric
+    :param [ParamName]: k (default: 5), bias (default: 'False'), dist_metric (default: euclidean)
     :type [ParamName]: int, bool, function
 
     :return: Predictions of the target values for the test set
