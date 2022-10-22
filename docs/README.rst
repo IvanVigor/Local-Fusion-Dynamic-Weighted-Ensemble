@@ -1,7 +1,8 @@
-Dynamic Weighted Ensemble - Local Fusion [DOCUMENTATION UNDER REVIEW]
-=====================================================================
+========================================
+Dynamic Weighted Ensemble - Local Fusion
+========================================
 
-This repository contain an implementation for the Dynamic Weighted
+This repository contains an implementation for the Dynamic Weighted
 Ensemble (DWE) - Local Fusion method. Find the paper in this ref on
 `IEEE <https://ieeexplore.ieee.org/document/8272838>`__.
 
@@ -108,11 +109,14 @@ Example of using the KWEnsembler class
 
 7. Compare the predictions from the ensembler with the predictions from
    the expert models
+
 ::
 
    print(metrics_table(y_test, X_test["one_preds_rf"], "Tree"))
 
 ::
+
+=====
 
 
 

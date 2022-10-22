@@ -1,10 +1,18 @@
-ensemblem package
+Ensemblem Package
 =================
+
+Models
+----------
+.. automodule:: ensemblem.model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Submodules
 ----------
 
-ensemblem.metrics module
+Metrics
 ------------------------
 
 .. automodule:: ensemblem.metrics
@@ -12,15 +20,7 @@ ensemblem.metrics module
    :undoc-members:
    :show-inheritance:
 
-ensemblem.model module
-----------------------
-
-.. automodule:: ensemblem.model
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-ensemblem.utils module
+Utils
 ----------------------
 
 .. automodule:: ensemblem.utils
@@ -28,7 +28,7 @@ ensemblem.utils module
    :undoc-members:
    :show-inheritance:
 
-ensemblem.weights\_functions module
+Weights\_functions
 -----------------------------------
 
 .. automodule:: ensemblem.weights_functions

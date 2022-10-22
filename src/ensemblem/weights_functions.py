@@ -16,6 +16,7 @@ def w_inverse_log_LMAE(actual, predicted):
     :param actual: actual values
     :param predicted: predicted values
 
+    :return: inverse log local MAE
     """
     return np.log(max(abs(actual-predicted))/mean_absolute_error(actual, predicted))
 
@@ -42,7 +43,9 @@ def get_k_nearest_neighbors_weights(point, data, k, metric, weights):
     :param metric: distance metric
     :param weights: weights of the neighbors
 
+    :return: k nearest neighbors
     """
+
     distances = metric(point, data)
     return distances.argsort()[:k], weights(distances)
 
@@ -60,6 +63,8 @@ def error_bias(data, k, metric):
     :param data: data to calculate the distance
     :param k: number of neighbors
     :param metric: distance metric
+
+    :return: bias of the error
     """
     error_bias = []
     for i in range(len(data)):
