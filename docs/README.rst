@@ -16,7 +16,7 @@ Installation
 
 ::
 
-   pip install ensemblem==0.2.7
+   pip install ensemblem==0.3
 
 ::
 

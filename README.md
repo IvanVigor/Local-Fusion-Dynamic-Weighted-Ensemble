@@ -12,7 +12,7 @@ Local Fusion is an ensemble techinque that could be used to improve predictions 
 
 ```{r setup, include=FALSE}
 
-	pip install ensemblem==0.2.7
+	pip install ensemblem==0.3
 
 ```
 
