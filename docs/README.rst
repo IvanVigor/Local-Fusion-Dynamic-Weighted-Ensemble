@@ -24,7 +24,7 @@ Installation
 Usage
 -----
 
-First of all, you need to define the KWEnsembler class. Next, it's required to provide the search-space (it could be the validation set) in which the ensembler will find the nearest elemets to the generic test sample.
+First of all, you need to define the KWEnsembler class. Next, it's required to provide the search-space (it could be the validation set) in which the ensembler will find the nearest elements to the generic test sample.
 
 ::
 
@@ -46,7 +46,7 @@ forecasts.
 
 ::
 
-The method returns the prediction list in the same order in which they are provided. The class supports one or multiple samples to forecasts.
+The class returns predictions in the same order in which they are provided. The class supports one or multiple samples to forecasts.
 
 Example of using the KWEnsembler class
 --------------------------------------
