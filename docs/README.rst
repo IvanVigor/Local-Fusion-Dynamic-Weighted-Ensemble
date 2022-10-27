@@ -12,7 +12,7 @@ predictions by weighing appropriately the single models contribution.
 Installation
 ------------
 
-`Pypi <https://pypi.org/project/ensemblem/0.1/>`__
+`Pypi <https://pypi.org/project/ensemblem/>`__
 
 ::
 

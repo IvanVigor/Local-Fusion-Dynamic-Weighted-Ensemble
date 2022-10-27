@@ -8,7 +8,7 @@ Local Fusion is an ensemble techinque that could be used to improve predictions 
 
 ## Installation
 
-[Pypi](https://pypi.org/project/ensemblem/0.1/)
+[Pypi](https://pypi.org/project/ensemblem)
 
 ```{r setup, include=FALSE}
 
@@ -20,7 +20,7 @@ Local Fusion is an ensemble techinque that could be used to improve predictions 
 
 ## Usage
 
-First of all, you need to define the KWEnsembler class. Next, it's required to provide the search-space (it could be the validation set) in which the ensembler will find the nearest elemets to the generic test sample.
+First of all, you need to define the KWEnsembler class. Next, it's required to provide the search-space (it could be the validation set) in which the ensembler will find the nearest elements to the generic test sample.
 
 ```{r setup, include=FALSE}
 	from ensemblem.model import KWEnsembler
@@ -36,7 +36,7 @@ Finally, calling the prediction method the class will produce the forecasts.
                     other_model_prediction_columns)
 ```
 
-The method returns the prediction list in the same order in which they are provided. The class supports one or multiple samples to forecasts.
+The class returns predictions in the same order in which they are provided. The class supports one or multiple samples to forecasts.
 
 
 
