@@ -90,7 +90,7 @@ class KWEnsembler():
             for idx, column in enumerate(pred_columns):
                 preds_val = self.X_val.loc[_neighbors][column]
                 target_val = self.y_val.loc[_neighbors]
-                _biases[idx] = weight_function(target_val, preds_val)
+                _weights[idx] = weight_function(target_val, preds_val)
                 if self.bias:
                     _biases[idx]=sum((target_val.T - preds_val) / len(target_val))
             predictions_ensembled.append(sum(((X_test[pred_columns].iloc[i]-_biases)*_weights.T)) / sum(_weights))

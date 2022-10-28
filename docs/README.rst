@@ -92,7 +92,7 @@ Example of using the KWEnsembler class
 ::
 
    ensemble = KWEnsembler(50, bias=False)
-   nsemble.fit(X_validation, y_validation, california_housing.feature_names)
+   ensemble.fit(X_validation, y_validation)
 
 ::
 
