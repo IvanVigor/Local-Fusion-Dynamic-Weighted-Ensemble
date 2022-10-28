@@ -7,7 +7,7 @@ setuptools.setup(
     name = "ensemblem",
     version = "0.3.2",
     author = "Ivan Vigorito",
-    author_email = "ivanvigorito1994@gmail.com",
+    author_email = "ivanvigorit@gmail.com",
     description = "Dynamic Weighted Ensemble - Local Fusion",
     long_description = long_description,
     long_description_content_type = "text/markdown",
