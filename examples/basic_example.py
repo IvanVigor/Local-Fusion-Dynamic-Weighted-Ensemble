@@ -46,7 +46,7 @@ TreeRegressor_one.fit(X_train, y_train)
 TreeRegressor_two.fit(X_train, y_train)
 
 
-# 4. Generate predictions for the test and over validatio sets
+# 4. Generate predictions for the test and over validation sets
 X_test["one_preds_rf"] = TreeRegressor_one.predict(X_test[california_housing.feature_names])
 X_test["two_preds_rf"] = TreeRegressor_two.predict(X_test[california_housing.feature_names])
 X_test["one_preds_r"] = model_one.predict(X_test[california_housing.feature_names])

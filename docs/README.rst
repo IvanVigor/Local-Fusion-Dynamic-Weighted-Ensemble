@@ -46,7 +46,9 @@ forecasts.
 
 ::
 
-The class returns predictions in the same order in which they are provided. The class supports one or multiple samples to forecasts.
+The class returns predictions in the same order in which they are provided. 
+It supports one or multiple samples to forecasts. In this library, we refers to the validation set as the space in which the ensembler will find the nearest elements to the generic test sample.
+
 
 Example of using the KWEnsembler class
 --------------------------------------
