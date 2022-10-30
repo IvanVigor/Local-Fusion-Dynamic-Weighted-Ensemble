@@ -1,5 +1,4 @@
-from src.ensemblem.model import KWEnsembler
-#from ensemblem.model import KWEnsembler
+from ensemblem.model import KWEnsembler
 from ensemblem.utils import *
 from ensemblem.weights_functions import *
 
