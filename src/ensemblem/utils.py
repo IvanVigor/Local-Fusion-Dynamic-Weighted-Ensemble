@@ -9,7 +9,7 @@ def split_sets(df, train_size, val_size, test_size, target):
 
     :param df: pandas.DataFrame to be divided
     :param train_size: float, size of the train set
-    :param val_size: float, size of the validation set
+    :param val_size: float, size of the neighbours-set
     :param test_size: float, size of the test set
 
     :return: train, validation and test sets with target and features
@@ -31,7 +31,7 @@ def divide_sets(df, train_size, val_size, test_size):
     ----------
     :param df: pandas.DataFrame to be divided
     :param train_size: float, size of the train set
-    :param val_size: float, size of the validation set
+    :param val_size: float, size of the neighbours-set
     :param test_size: float, size of the test set
 
     :return: train, validation and test sets

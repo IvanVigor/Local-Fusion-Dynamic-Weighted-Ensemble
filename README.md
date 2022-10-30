@@ -20,7 +20,7 @@ Local Fusion is an ensemble techinque that could be used to improve predictions 
 
 ## Usage
 
-First of all, you need to define the KWEnsembler class. Next, it's required to provide the search-space (it could be the validation set) in which the ensembler will find the nearest elements to the generic test sample.
+First of all, you need to define the KWEnsembler class. Next, it's required to provide the search-space (it could be the validation set / neighbours-set) in which the ensembler will find the nearest elements to the generic test sample.
 
 ```{r setup, include=FALSE}
 	from ensemblem.model import KWEnsembler
@@ -37,7 +37,7 @@ Finally, calling the prediction method the class will produce the forecasts.
 ```
 
 The class returns predictions in the same order in which they are provided. 
-It supports one or multiple samples to forecasts. In this library, we refers to the validation set as the space in which the ensembler will find the nearest elements to the generic test sample.
+It supports one or multiple samples to forecasts. In this library, we refers to the neighbours-set as the space in which the ensembler will find the nearest elements to the generic test sample.
 
 
 
@@ -45,11 +45,11 @@ It supports one or multiple samples to forecasts. In this library, we refers to 
 
 
 1. Load data
-2. Split data into train, validation and test sets
+2. Split data into train, neighbours-set and test sets
 3. Train multiple expert models on the train data
 4. Generate predictions for the test data
-5. Train the ensembler on validation data
-6. Generate predictions for the test dataset coming from the ensembler
+5. Train the ensembler on neighbours-set
+6. Generate predictions for the test dataset using ensembler
 7. Compare the predictions from the ensembler with the predictions from the expert models
 
 

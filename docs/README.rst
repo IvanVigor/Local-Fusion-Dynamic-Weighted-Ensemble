@@ -61,7 +61,7 @@ Example of using the KWEnsembler class
 
 ::
 
-2. Split data into train, validation and test sets. The validation dataset will be used in the following steps for k-nearest search.
+2. Split data into train,  neighbours and test sets. The neighbours-set will be used in the following steps for k-nearest search.
 
 ::
 
@@ -89,7 +89,7 @@ Example of using the KWEnsembler class
 
 ::
 
-5. Train the ensembler on validation data
+5. Train the ensembler on  neighbours data
 
 ::
 
