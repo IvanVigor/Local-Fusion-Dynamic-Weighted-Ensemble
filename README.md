@@ -43,6 +43,7 @@ It supports one or multiple samples to forecasts. In this library, we refers to 
 
 ## Example of using the KWEnsembler class
 
+You can find a detailed tutorial in the readthedocs webpage.
 
 1. Load data
 2. Split data into train, neighbours-set and test sets
