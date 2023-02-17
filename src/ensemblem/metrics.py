@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+
 def euclidean(point, data):
     """
     Euclidean distance is the square root of the sum of the squared differences of their coordinates
@@ -10,7 +11,8 @@ def euclidean(point, data):
 
     :return: distance
     """
-    return np.sqrt(np.sum((data - point)**2, axis=1))
+    return np.sqrt(np.sum((data - point) ** 2, axis=1))
+
 
 def euclidean_v(x, y):
     """
@@ -21,7 +23,8 @@ def euclidean_v(x, y):
 
     :return: distance
     """
-    return np.sqrt(np.sum((x - y)**2))
+    return np.sqrt(np.sum((x - y) ** 2))
+
 
 def manhattan_v(x, y):
     """
@@ -32,6 +35,7 @@ def manhattan_v(x, y):
     """
     return np.sum(np.abs(x - y))
 
+
 def cosine_v(x, y):
     """
     Vector Cosine distance is 1 - cosine similarity
@@ -40,6 +44,7 @@ def cosine_v(x, y):
     :param y: data to calculate the distance
     """
     return 1 - np.dot(x, y) / (np.linalg.norm(x) * np.linalg.norm(y))
+
 
 def mean_absolute_percentage_error(actual, predicted):
     """
@@ -50,6 +55,7 @@ def mean_absolute_percentage_error(actual, predicted):
     """
     return np.mean(np.abs((actual - predicted) / actual))
 
+
 def mean_absolute_error(actual, predicted):
     """
     Mean Absolute Error (MAE)
@@ -58,19 +64,22 @@ def mean_absolute_error(actual, predicted):
     :param predicted: predicted values
 
     """
-    return np.mean(np.abs(predicted-actual.T).T)
+    return np.mean(np.abs(predicted - actual.T).T)
+
 
 def root_mean_squared_error(actual, predicted) -> float:
     """
     Local Root Mean Squared Error (LRMSE)
     """
-    return np.sqrt(np.mean((predicted-actual.T).T)**2)
+    return np.sqrt(np.mean((predicted - actual.T).T) ** 2)
+
 
 def mean_squared_error(actual, predicted) -> float:
     """
     Mean Squared Error (MSE)
     """
-    return np.mean((predicted-actual.T).T)**2
+    return np.mean((predicted - actual.T).T) ** 2
+
 
 def root_mean_squared_log_error(actual, predicted) -> float:
     """
@@ -79,7 +88,7 @@ def root_mean_squared_log_error(actual, predicted) -> float:
     :param predicted: predicted values
     :return: RMSLE
     """
-    return np.sqrt(np.mean(np.square(np.log(predicted+1) - np.log(actual+1))))
+    return np.sqrt(np.mean(np.square(np.log(predicted + 1) - np.log(actual + 1))))
 
 
 def metrics_table(actual, predicted, model_name) -> pd.DataFrame:
@@ -92,11 +101,17 @@ def metrics_table(actual, predicted, model_name) -> pd.DataFrame:
 
     :return: table with results
     """
-    metrics = pd.DataFrame(columns=['Model', 'MAPE', 'MAE', 'RMSE', 'RMSLE'],
-                           data=[[model_name, mean_absolute_percentage_error(actual, predicted),
-                                  mean_absolute_error(actual, predicted),
-                                  root_mean_squared_error(actual, predicted),
-                                  root_mean_squared_log_error(actual, predicted)]])
+    metrics = pd.DataFrame(
+        columns=["Model", "MAPE", "MAE", "RMSE", "RMSLE"],
+        data=[
+            [
+                model_name,
+                mean_absolute_percentage_error(actual, predicted),
+                mean_absolute_error(actual, predicted),
+                root_mean_squared_error(actual, predicted),
+                root_mean_squared_log_error(actual, predicted),
+            ]
+        ],
+    )
 
-    return metrics #.to_markdown()
-
+    return metrics  # .to_markdown()
