@@ -21,7 +21,7 @@ class KWEnsembler:
     :rtype: bytearray
     """
 
-    def __init__(self, k: int = 5, bias: bool = "False", dist_metric=euclidean):
+    def __init__(self, k: int = 5, bias: bool = False, dist_metric=euclidean):
         self.k = k
         self.bias = bias
         self.dist_metric = dist_metric
