@@ -63,7 +63,9 @@ You can find a detailed tutorial in the readthedocs webpage.
 |  2 | Tree 2  | 0.319638 | 0.511249 | 0.00224047 | 0.225012 |
 |  3 | RidgeCV | 0.31537 | 0.531177 | 0.0131216 | 0.238018 |
 
+## Changelog
 
+15-05-2023 [Fix] Renamed wrong paths
 
 ## Credits
 
@@ -75,8 +77,6 @@ Algorithm Applications
 
 
 ## Possible Improvements
-
-- [Docs] General improvements over documentations
 
 - [Code] Clean-code 
 
