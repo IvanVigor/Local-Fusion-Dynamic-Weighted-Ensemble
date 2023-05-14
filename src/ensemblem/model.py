@@ -1,7 +1,7 @@
 import numpy as np
 import pandas
-from weights_functions import *
-from metrics import *
+from .weights_functions import *
+from .metrics import *
 from sklearn.preprocessing import MinMaxScaler
 from typing import List
 
