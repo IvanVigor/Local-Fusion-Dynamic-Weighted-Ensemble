@@ -45,6 +45,6 @@ def divide_sets(df, train_size, val_size, test_size):
     test_size = int(test_size * len(df))
     return (
         df[:train_size],
-        df[train_size : train_size + val_size],
-        df[train_size + val_size : train_size + val_size + test_size],
+        df[train_size:train_size + val_size],
+        df[train_size+val_size:train_size+val_size+test_size],
     )

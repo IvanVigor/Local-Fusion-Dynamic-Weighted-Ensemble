@@ -1,5 +1,7 @@
+import numpy as np
 import pandas
-from .weights_functions import *
+from weights_functions import *
+from metrics import *
 from sklearn.preprocessing import MinMaxScaler
 from typing import List
 
@@ -7,20 +9,17 @@ from typing import List
 class KWEnsembler:
     """
     KWEnsembler class
-
     This class implements the K-Weighted Ensembler model.
-    It is an ensemble model that uses the k-nearest neighbors of a sample to predict its target value.
+    It is an ensemble model that uses the k-nearest
+    neighbors of a sample to predict its target value.
     The weights of the neighbors are calculated using a weight function.
     The bias of the neighbors can be added to the prediction.
-
     :param k: number of neighbors to use
     :param bias: whether to add the bias of the neighbors to the prediction
     :param dist_metric: distance metric to use
-
     :return: Predictions of the target values for the test set
     :rtype: bytearray
     """
-
     def __init__(self, k: int = 5, bias: bool = False, dist_metric=euclidean):
         self.k = k
         self.bias = bias
@@ -45,7 +44,7 @@ class KWEnsembler:
         """
         self.X_neighbors = X_neighbors
         self.y_neighbors = y_neighbors
-        self.x_scaler = MinMaxScaler([range_min, range_max])
+        self.x_scaler = MinMaxScaler((range_min, range_max))
         self.X_neighbors[features] = self.x_scaler.fit_transform(
             self.X_neighbors[features]
         )

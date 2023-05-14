@@ -1,14 +1,13 @@
+import numpy as np
 from ensemblem.model import KWEnsembler
-from ensemblem.utils import *
-from ensemblem.weights_functions import *
-
-from sklearn.preprocessing import StandardScaler
+from ensemblem.utils import split_sets
+from ensemblem.metrics import metrics_table
+from ensemblem.weights_functions import w_inverse_log_LMAE
+from sklearn.datasets import fetch_california_housing
 from sklearn.linear_model import RidgeCV
 from sklearn.pipeline import make_pipeline
-from sklearn.datasets import fetch_california_housing
+from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
-
-import numpy as np
 
 """
 ====================================================================
@@ -82,7 +81,6 @@ results = ensemble.predict(
     ["one_preds_rf", "two_preds_rf", "one_preds_r"],
     weight_function=w_inverse_log_LMAE,
 )
-
 # 6. Generate predictions for the test data coming from the ensembler
 print(metrics_table(y_test, np.array(results), "Esemble"))
 print(metrics_table(y_test, X_test["one_preds_rf"], "Tree"))
