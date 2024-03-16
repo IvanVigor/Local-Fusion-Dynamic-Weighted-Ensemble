@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "local-fusion-dynamic-weighted-ensemble"
+version = "0.1.0"
+description = "Local fusion ensemble model for time-series"
+authors = ["IvanVigor <ivanvigorito1994@gmail.com>"]
+readme = "README.md"
+packages = [{include = "local_fusion_dynamic_weighted_ensemble"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "1.23.3"
+pandas = "1.5.0"
+scikit-learn = "1.1.2"
+commitizen = "^3.18.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
